@@ -2,16 +2,16 @@ class Freebie < ActiveRecord::Base
     belongs_to :company
     belongs_to :dav
 
-    def freebie_company
-        self.company.dav
+    def self.freebie_company
+        Freebie.company.dav
     end
 
-    def freebie_dev
-        self.freebie.dev
+    def self.freebie_dev
+        Freebie.freebie.dev
     end
 
-    def freebie_print_details
-        self.freebie.insert(dav.name.to_s) + " owns a " + self.freebie.item_name + " from" + self.freebie.company.fitst.name
+    def self.freebie_print_details
+        Freebie.freebie.insert(dav.name.to_s) + " owns a " + self.freebie.item_name + " from" + self.freebie.company.fitst.name
 
     end
 end
